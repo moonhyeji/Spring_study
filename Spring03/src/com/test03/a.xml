@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!-- 이순신 2500000 java팀 (Developer) -->
+   <bean id="lee" class="com.test03.Developer">
+     <constructor-arg name="name" value="이순신"></constructor-arg>
+     <constructor-arg name="salary" value="250000"></constructor-arg>
+     <property name="dept" value="java팀"></property>     
+   </bean>
+
+
+<!-- 홍길동 2000000 docker팀 (Enginner) -->
+<bean id="hong" class="com.test03.Engineer">
+     <constructor-arg name="name" value="홍길동"></constructor-arg>
+     <constructor-arg name="salary" value="200000"></constructor-arg>
+     <property name="dept" value="docker팀"></property>     
+   </bean>
+</beans>
+ <!--  이에 해당하는 데이터는 나중에 어노테이션으로 처리  -->
+ 
+ 

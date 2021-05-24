@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+     <!-- <bean id = "today" class="java.util.Date"></bean> -->
+         <bean id = "start" class="java.util.Date">
+              <property name="year" value="121"></property> 
+               <!-- Calendar.YEAR, year + 1900). 1900이 기본  -->
+              <property name="month" value="0"></property>
+              <!-- 0-11. 월은 0부터 시작  -->
+              <property name="date" value="12"></property>
+         </bean> 
+<!-- =========================================  -->
+      
+      
+      
+         <bean id="myClass" class="com.test01.MyClass"/>
+
+        <!-- beantest 이름의 beantest 객체 생성   -->
+         <bean id="beanTest" class="com.test01.BeanTest">
+              <!-- 1.BeanTest(Date date)호출 -->
+	         <constructor-arg name="date" ref="start" />         
+	         
+	           <!-- 2.setMyClass(MyClass myClass 호출 -->
+	         <property name="myClass" ref="myClass"></property>
+	        
+	          <!-- 3.setDate(Date date)호출 -->
+	         <property name="date" ref="start"></property>
+	
+			  <!-- 4.setNumber(int num) 호출  -->
+	         <property name="number">
+	         <value type="short">100</value>  <!-- 타입도 지정 가능. -->
+	         </property>
+	        
+	          <!-- 5.setAttay(String[] arr) 호출  -->
+            <property name="array">
+	            <array>
+	              <value>이순신</value>
+	              <value>홍길동</value>
+	              <value>김선달</value>
+	            </array>
+            </property>
+            <!--  6. setList(List<String> list) 호출 -->
+            <property name="list">
+              <list>
+                <value>봄</value>
+                <value>여름</value>
+                <value>가을</value>
+                <value>겨울</value>
+              </list>
+            </property>
+            <!-- 7.  setSet(Set<String> set) 호출  -->
+            <!-- set 은 순서, 중복 허용하지 않기 때문에 123만 출력됨.-->
+            <property name="set">
+              <list>
+                <value>1</value>
+                <value>1</value>
+                <value>2</value>
+                <value>2</value>
+                <value>3</value>
+              </list>
+            </property>
+            
+            <!-- 8. setMap(Map<String, String> map) 호출 -->
+            <!--  1:봄 2: 여름 3:가을 4:겨울  -->
+            <property name="map">
+              <map>
+                <entry>
+                   <key><value>1</value></key>
+                   <value>봄</value>
+                </entry>
+                <entry>   
+                   <key><value>2</value></key>
+                   <value>여름</value>
+                </entry>
+                <entry key="3" value="가을"></entry>
+                <entry key="4" value="겨울"></entry>
+              </map>
+            </property>
+            
+            <!-- 9.setScore(List<Score> list) 호출 /score라는 객체 넣기 -->
+            <property name="score">
+              <list>
+                  <bean class="com.test01.Score">
+                    <property name="name" value="이순신"></property>
+                    <property name="kor" value="100"></property>
+                    <property name="eng" value="100"></property>
+                    <property name="math" value="100"></property>
+                  </bean>
+                  <!-- list 에서 ref를 사용해서 외부의 hong 객체를 가져옴  -->
+                  <ref bean="hong"></ref>
+              </list>
+            </property>
+         </bean>
+         
+         <bean id="hong" class="com.test01.Score">
+            <constructor-arg value="홍길동"/>
+            <constructor-arg value="100"/>
+            <constructor-arg value="100"/>
+            <constructor-arg value="100"/>
+         </bean>
+</beans>
+
+
+
+<!--  
+       <bean id="myClass" class="com.test01.MyClass"/>   
+       <bean id="beanTest" class="com.test01.BeanTest"></bean>
+       이렇게 할 경우, 출력값: 
+       MyClass() 생성 
+       BeanTest() 호출
+       스타트데이트 : Tue Jan 12 00:29:38 KST 2021
+       이렇게만 호출됨. 
+       왜냐하면 name=" " 이 들어가있는 의존주입 안해줘서 ,
+       name 의 값에 set붙이고 첫글자 대문자 해줘서 값을 찾는다!!!!!
+       
+
+
+-->
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="허브" class="com.test02.Address">
+	  <constructor-arg name="name" value="허브맛쿠키"/>
+	  <constructor-arg name="addr" value="쿠키왕국1"/>
+	  <constructor-arg name="phone" value="12345"/>
+	</bean>
+	
+	<bean id="에스프레소" class="com.test02.Address">
+	  <constructor-arg name="name" value="에소맛쿠키"/>
+	  <constructor-arg name="addr" value="쿠키왕국2"/>
+	  <constructor-arg name="phone" value="123451"/>
+	</bean>
+</beans>
