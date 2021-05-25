@@ -1,0 +1,11 @@
+SpringMVC03
+01.pom.xml 
+   (db와 연결할 껀데필요한 것들 생각해보자.)
+    ojdbc6 , mybatis, mybatis-spring, commons-dbcp, spring-orm 을 연결!
+02.web.xml
+03./WEB-INF/spring/sqls/test.sql  만들기.
+04.sql table가지고 게시판 만들거니까, dto.dao.biz.controller 만들기.  
+05.src/main/resources/mybatis/myboard-mapper.xml
+06.src/main/resources/mybatis/db.properties (mybatis 설정 해주기.properties-xmlcatalog-add
+07. /WEB-INF/spring/sqls/config.xml
+08.applicationContext.xml
