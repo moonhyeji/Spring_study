@@ -1,0 +1,52 @@
+1.web.xml : 2.5 ->4.0 으로 바꾸기. 사용하는 tomcat 버전에 따라 web.xml 버전이 바뀜.
+2.pom.xml
+    java버전 바꾸기(Line11) : 1.6 -> 15 (15.0.1아니라!!!)
+    spring(Line12) : 3.1.1 -> 5.3.7 로 바꾸기 
+    servlet-api (Line95)-> javax.servlet-api  로 바꾸고, 2.5 -> 4.0.1로 바꾸기
+    (Line 102 javax.servlet.jsp)jsp-api -> javax.servlet.jsp-api : 2.1 ->2.3.3
+    maven-compiler-plugin 의 (141번쨰줄)source/target : 1.6 -> 15.0.1(내 자바버전)
+3.project-facets   (project 우클릭 - properties - project -facets)
+    dynamic web module : 2.5 ->4.0
+    java : 15. 
+4.maven update
+
+_jdbc
+5.pom.xml : spring-jdbc, ojdbc6 넣기 /& root context -> /appServlet/applicationcontext에 넣고,  
+6.web.xml : line 10 root 바꿔주기 ./ / 대신 *.do 바꿔주기 
+7.src/main/resources/sqls
+  jdbc.sql 작성 
+  db.properties 작성 
+8.applicationContext
+9.dto.dao.biz.controller 만들기  
+
+_javaconfig : 이런식으로 넘어가서스프링 부트로 넘어갔다 라는 것을 보여주려고해본 것.
+10.com.mvc.update.config/ApplicationConfig(applicationcontext를 대신 할 애.)
+11.com.mvc.update.config/ServletConfig(impl WebMvcConfigurer)
+12.web.xml 
+         맨위에 contextClass, contextConfigLocation  추가하고, 
+     	<!-- Processes application requests --> 에 contextClass, contextConfigLocation 추가.
+13.com.mvc.update.config/WebConfig (impl WebApplicationInitializer) -web.xml 지우기.
+14.pom.xml
+     가장 밑에 maven-war-plugin:3.3.1 가져와서 
+            -1.dependency를 plugin 으로 바꾸고
+            -2.<configuration>
+			  <fileOnMissingWebXml>false</fileOnMissingWebXml>
+			</configuration> 추가하기.
+  15.메이븐 업데이트 하고 실행. 
+  ---  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
