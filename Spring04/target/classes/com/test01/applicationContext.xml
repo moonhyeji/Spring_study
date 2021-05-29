@@ -3,7 +3,9 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-     <!-- <bean id = "today" class="java.util.Date"></bean> -->
+      <bean id = "today" class="java.util.Date"></bean> 
+         
+         <!--  ============= -->
          <bean id = "start" class="java.util.Date">
               <property name="year" value="121"></property> 
                <!-- Calendar.YEAR, year + 1900). 1900이 기본  -->
@@ -13,17 +15,37 @@
          </bean> 
 <!-- =========================================  -->
       
+      <!-- 빈생성 == 객체생성 
+      객체를 생성하려면 생성자가 필요하니까 기본생성자도 출력된다!! 
+      -->
       
-      
-         <bean id="myClass" class="com.test01.MyClass"/>
+         <bean id="myClass" class="com.test01.MyClass" />
+<!-- 
+<bean id="myClass" class="com.test01.MyClass"  lazy-init="true"/>
+lazyinit="true"일 경우 출력값
 
-        <!-- beantest 이름의 beantest 객체 생성   -->
+*BeanTest(Date date)호출 : Tue Jan 12 19:27:51 KST 2021
+*MyClass() 생성 
+setMyClass(Myclass myClass) 호출 : 
+MyClass의 prn() 호출
+
+   ===========================
+원래출력
+*MyClass() 생성 
+*BeanTest(Date date)호출 : Tue Jan 12 19:29:10 KST 2021
+setMyClass(Myclass myClass) 호출 : 
+MyClass의 prn() 호출
+ -->
+
+
+
+        <!-- beantest 이름의 beantest 객체 생성   --> 
          <bean id="beanTest" class="com.test01.BeanTest">
               <!-- 1.BeanTest(Date date)호출 -->
-	         <constructor-arg name="date" ref="start" />         
+	         <constructor-arg name="date" ref="start" />   <!--  //   : constructor-arg 태그 갯수만큼의 파라미터를 가진 생성자를 호출해서 객체생성. --> 
 	         
 	           <!-- 2.setMyClass(MyClass myClass 호출 -->
-	         <property name="myClass" ref="myClass"></property>
+	         <property name="myClass" ref="myClass"></property>   <!-- :property 태그를 사용하며 기본생성자 호출해서 객체생성  -->
 	        
 	          <!-- 3.setDate(Date date)호출 -->
 	         <property name="date" ref="start"></property>
@@ -108,9 +130,12 @@
        <bean id="myClass" class="com.test01.MyClass"/>   
        <bean id="beanTest" class="com.test01.BeanTest"></bean>
        이렇게 할 경우, 출력값: 
+      
        MyClass() 생성 
        BeanTest() 호출
        스타트데이트 : Tue Jan 12 00:29:38 KST 2021
+      
+       빈 객체를 생성하면 기본생성자도같이 생성됨 
        이렇게만 호출됨. 
        왜냐하면 name=" " 이 들어가있는 의존주입 안해줘서 ,
        name 의 값에 set붙이고 첫글자 대문자 해줘서 값을 찾는다!!!!!

@@ -7,6 +7,13 @@
     <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
     <property name="basename" value="com/test02/testmessage"/>
     </bean>
+    <!--  bean의 class=ResourceBundleMessageSource 에 의해서 
+    com/test02/testmessage 가 testmessage_en.property
+                              testmessage_ko.property 들, 즉,  testmessage들을 읽어서  
+       Memberinfo.java의 public void setMessageSource(MessageSource messageSource) { 의 (MessageSource messageSource) 로 전달해줌.  
+                              
+    
+    -->
     
     <bean id="member" class="com.test02.MemberInfo"/>
     

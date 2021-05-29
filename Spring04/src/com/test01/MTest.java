@@ -9,11 +9,13 @@ public class MTest {
 
 	
 	public static void main(String[] args) {
+		
+		
 		ApplicationContext factory = new ClassPathXmlApplicationContext("com/test01/applicationContext.xml");
 		
 		//today 호출(오늘날짜)
-		//Date today = factory.getBean("today",Date.class);
-		//System.out.println("today");
+		Date today = factory.getBean("today",Date.class);
+		System.out.println("today");
 		
 		
 		//2021. 1. 12 startdate

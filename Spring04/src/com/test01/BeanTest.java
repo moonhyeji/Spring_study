@@ -46,6 +46,7 @@ public class BeanTest {
     
    public void setSet(Set<String> set) {
 	   System.out.println("setSet(Set<String> set) 호출 ");
+	  
 	   for(String s: set) {
 		   System.out.println(s);
 	   }
