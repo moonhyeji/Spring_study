@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="favoriteFood" class="com.test03.Food">
+	    <property name="name" value="회"/>
+	    <property name="price" value="2000"/>
+	</bean>
+	 
+	<bean id="unFavoriteFood" class="com.test03.Food">
+	   <constructor-arg name="name" value="해물탕"></constructor-arg>
+	   <constructor-arg name="price" value="40000"></constructor-arg>
+	</bean>
+	 
+	<!--
+	 <bean id="myFood" class="com.test03.MyFood">
+	   <property name="favoriteFood" ref="favoriteFood"/>
+	   <property name="unFavoriteFood" ref="unFavoriteFood"/>
+	</bean> 
+	-->
+	<bean id="myFood" class="com.test03.MyFood" autowire="byName"/>
+	<!--  <bean id="myFood" class="com.test03.MyFood" autowire="byName"/>    실행됨 -->   
+	<!-- <bean id="myFood" class="com.test03.MyFood" autowire="byType"/>    에러남  -->    
+	<!--  <bean id="myFood" class="com.test03.MyFood" autowire="constructor"/> 실행됨  -->
+    <!-- <bean id="myFood" class="com.test03.MyFood" autowire="default"/>    null값 들어감.  --> 
+ 
+
+<!-- 
+중요!!
+autowire 속성값
+1. byName: setter와 같은 이름(id속성 또는 name속성 )이 있으면 자동 할당(DI) 
+2. byType: setter와 같은 타입의 bean이 있으면 자동 할당(DI)  =->같은 타입의 bean이 2개 이상 있으면 에러발생  
+3. constructor: 생성자의 파라미터와 같은 타입의 bean이 있으면 자동 할당 (파라미터가 여러개인데,파라미터의 타입도 같은데?? => id 나  name으로 호출 )
+4. default: constructor -> byType
+           생성자의 파라미터와 같은 타입의 bean이 있으면 자동 할당해주고, 없으면 byType으로 넘어간다.
+           **기본생성자가 있으면, 기본 생성자를 호출 
+           ***"no" The traditional Spring default. No automagical wiring. 
+ -->
+
+
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
