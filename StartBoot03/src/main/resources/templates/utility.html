@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	
+	<p th:text="${#calendars.format(#calendars.createNow(), 'yyyy-MM-dd HH:mm')}">#dates object</p>
+	
+	<p th:text="${#numbers.formatInteger(3453.1234,6)}">#numbers object</p> <!-- 3456.1234 를 6칸의 정수형으로 만들어라 . -->
+	
+	<p th:text="${#strings.toUpperCase('hello,springboot')}">#strings object</p> <!-- 대문자로 출력  -->
+	
+	<a href="/"> index </a>
+</body>
+</html>
