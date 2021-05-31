@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+		<h1>list</h1>
+		
+		<table border="1">
+		
+		<col width="50">
+		<col width="100">
+		<col width="500">
+		<col width="100">
+		
+		  <tr>
+		     <th>번호</th>
+		     <th>작성자</th>
+		     <th>제목</th>
+		     <th>날짜</th>
+		  </tr>
+		  <tr th:if="${list.size() == 0}">
+		    <td colspan="4" align="center">---------no event-------</td>
+		  </tr>
+		
+		<!--  list 가져오는데 dto라는 이름으로 하나하나 가져오겠다. -->
+		<tr th:unless="${list.size() == 0}" th:each="dto:${list}">
+		  <td th:text="${dto.myno}"></td>
+		  <td th:text="${dto.myname}"></td>
+		  <td><a th:href="|@{/member/detail}?myno=${dto.myno}|" th:text="${dto.mytitle}" ></a></td>
+		  <td th:text="${dto.mydate}"></td>
+		</tr>
+		<tr>
+			<td colspan="4" align="right">
+			<input type="button" onclick="location.href='insertform'" th:value="insert">
+		</tr>
+		</table>
+	
+</body>
+</html>
+
+
+
+
+
+
+
+
+
