@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!-- namespace탭에서 context에 체크  -->
+
+	<context:annotation-config/>  <!-- @Autowire을 해주는 애 / Autowired를 사용하기 위해서는 이 객체가 필요하다.-->
+	
+	<bean id="lee" class="com.test02.Student">
+		<property name="name" value="이순신"></property>
+		<property name="addr" value="서울시 강남구"></property>
+		<property name="age" value="100"></property>
+	</bean>
+	
+	<bean id="hong" class="com.test02.Student">
+	    <property name="name" value="홍길동"></property>
+		<property name="addr" value="경기도 수원시"></property>
+		<property name="age" value="200"></property>
+	</bean>
+	<!-- lee  와 hong 이 있으면 연결할 애가 2개가뜨기 때문에 어떤 애를 가져다 쓸 지 몰라서 에러가 뜸. 
+	'com.test02.Student' available: expected single matching bean but found 2: lee,hong -->
+	
+	
+	<bean id ="mySchool" class="com.test02.School">
+	    <property name="grade" value="1"></property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
