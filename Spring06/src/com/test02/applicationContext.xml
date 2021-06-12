@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean id="man" class="com.test02.Man"></bean>
+	<bean id="woman" class="com.test02.Woman"></bean>
+	
+	<!-- ccc:공통관심사항  -->
+	<bean id="myAdvice" class="com.test02.MyAspect"></bean>
+	
+	<!-- proxy 객체 생성 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"/>
+    
+    <!--  advisor: advice + pointcut -->
+    <bean id="myAdvisor" class="org.springframework.aop.aspectj.AspectJExpressionPointcutAdvisor">
+    	<property name="advice" ref="myAdvice"></property>
+    	<property name="expression" value="execution(public * *(..))"></property>
+    	                             <!-- execution(public * *(..)) = 이부분이 pointcut임    
+    	                             public의 리턴타입이 뭐든상관이 없고 *, 메소드이름이 뭐든 상관이 없음*, 파라미터 갯수가 몇개든 상관이 없다 (..) 
+    	                             이 pointcut 에 의해서 ccc(Advice)가 연결이 된다.
+    	                             
+    	                             여기서 ccc(Advice)는 자신이 target인 척을 한다. (target(classWork)한테 넘어가는 신호를 가로챔 )
+    	                             
+    	                             -->
+    </bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
