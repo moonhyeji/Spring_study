@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="singleton" class="com.test01.AbstractTest" factory-method="getInstance" /> 
+                                                    <!--"getInstance" : 메소드를호출해서 만들어주겠다. -->
+<!--  AbstractTest singleton = new AbstractTest(); -->
+<!--  AbstractTest singleton = AbstractTest.getInstance(); -->
+
+<!-- 
+AbstractTest는 추상클래스이기 때문에 new연산자를 사용할 수 없다. 따라서  
+AbstractTest 가 가지고 있는 getInstance라는 메소드를 호출해서 만들어주겠다.  -->
+<!--  getInstance : 해당 클래스를 만들어 주는 메소드 -->
+
+
+</beans>

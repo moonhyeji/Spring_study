@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--  한명은 생성자 주입 -->
+<bean id="우유" class="com.test02.Emp">
+<constructor-arg name="name" value="우유맛쿠키"></constructor-arg>
+<constructor-arg name="salary" value="10000"></constructor-arg>
+</bean>
+
+
+<!--   한명은 setter 주입 -->
+<bean id="허브" class="com.test02.Emp">
+   <property name="name" value="허브맛쿠키"/>
+   <property name="salary" value="13000"/>
+</bean>
+</beans>
