@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!--  target -->
+	<bean id="targetBean" class="com.test07.MessageBeanImpl">
+		<property name="name" value="Pengsoo"></property>
+	</bean>
+	
+	
+	<!-- advice -->
+	<bean id="logginAdvice" class="com.test07.LoggingAdvice"></bean>
+	
+	<!-- advisor = advice + pointcut -->
+	<bean id="myAdvisor" class="org.springframework.aop.support.DefaultPointcutAdvisor">
+		<property name="advice" ref="logginAdvice"/>
+		<property name="pointcut">
+		    <bean class="org.springframework.aop.support.JdkRegexpMethodPointcut">
+		    	<property name="pattern">
+		    		<value>.*sayHello*</value>   <!--  regex를 패턴으로 만들어서 해당 패턴을 포인트컷으로 사용  -->
+		    	</property>
+		    </bean>
+		</property>
+	</bean>
+		
+		
+		
+			
+	<!--  proxy  타겟을 대신 받아주는 애  -->
+	<bean id="proxy" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="targetBean"></property>
+		<property name="interceptorNames">
+			<list>
+			    <value>myAdvisor</value>
+			</list>
+		</property>
+	</bean>
+</beans>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
