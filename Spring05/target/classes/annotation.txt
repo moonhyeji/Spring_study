@@ -24,6 +24,10 @@ Spring Framework에서 annotation을 사용하려면 다음과 같은 설정들�
 @Service   : 역할 부여 없이 스캔 대상. 비지니스 클래스(biz) 에 사용
 @Repository   : 일반적으로 dao에 사용. Exception을 DataAccessException으로 변환
 
+
+
+
+
 1. @Component
 패키지   : org.springframework.stereotype
 버전      : spring 2.5

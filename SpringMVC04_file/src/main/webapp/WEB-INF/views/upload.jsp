@@ -30,6 +30,50 @@
        <textarea rows="10" cols="60" name="desc"></textarea>
        <input type="submit" value="send">
        </form:form>
+       
+       
+       
+       <!-- 
+         <form tag의 enctype 속성>
+         1.application/www-form-urlencoded: 문자들이 encoding 됨 (default)
+         2.multipart/form-data: fileupload 기능(무조건 post로 사용)
+         3.text/plain :encoding 하지 않음. 
+         
+         spring form tag<spring이 제공하고 잇는 jstl>
+           form:errors -> Errors, BindingResult를 사용할 때, command 객체의 특정 field에서 발생하는 에러메세지 출력 가능. 
+         
+       
+       
+        -->
 
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

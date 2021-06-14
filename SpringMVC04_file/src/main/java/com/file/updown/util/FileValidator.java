@@ -12,7 +12,7 @@ public class FileValidator implements Validator {
 	
 	
 	@Override
-	public boolean supports(Class<?> clazz) {
+	public boolean supports(Class<?> clazz) {  //validator 사용 가능 여부 확인 
 		return false;
 	}
 
@@ -22,7 +22,7 @@ public class FileValidator implements Validator {
 		UploadFile file = (UploadFile) target; //대상을 파일에 등록하고,
        
        if(file.getMfile().getSize() == 0) { // mfile이 사이즈가 0일경우 
-    	 
+    	      //*필드에 대한 error 코드를 리턴./ error code가 없으면 default message 전달 
     	   errors.rejectValue("mfile", "fileNPE", "Please select a file");  // 실행됨.
     	                   // 필드값, 에러코드, 에러코드에 대한 메세지 
     	   				   // 필드에 대한 에러코드 추가, 에러코드에 대한 메세지 

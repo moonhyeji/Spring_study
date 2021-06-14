@@ -72,7 +72,6 @@ public class MYBoardDaoImpl implements MYBoardDao {
 		try {
 			res = sqlSession.delete(NAMESPACE+"delete", myno);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return res;

@@ -6,12 +6,10 @@ public class Engineer extends Emp {
 
 	public Engineer() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Engineer(String name, String salary) {
 		super(name, salary);
-		// TODO Auto-generated constructor stub
 	}
 	
 	

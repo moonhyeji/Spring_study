@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+<!--  namespace: context  체크 -->
+	<context:component-scan base-package="com.hello.mvc"></context:component-scan>
+	<!-- com.hello.mvc 안에 있는 패키지와 클래스를 읽으면서 그 안에 있는 annotation들을설정해주겠다. -->
+	
+	
+<!--  namespace: mvc  체크 -->
+	<mvc:annotation-driven/>   
+<!-- controller,service.....등등. spring mvc 와 관련된 annotation 처리해주는 애  -->
+
+</beans>
+
+<!--  이 hello-servelt은 dispatcherservlet의 설정파일이기 때문에, 
+dispatcherservelt 이 modelandview  객체를 받아서, 받은 것의 값을 확인해서 view(return "Spring")를 찾아서
+view안에 model의 값을 받아서 rendering시켜준다.-->
+
+
+<!-- request 받아서 server에서 .jsp를 받아서 compile한 후 document(html)로 바꾼다음 전달 
+여기서 compile = rendering이라고 함.  -->
+

@@ -9,7 +9,6 @@ public class Developer extends Emp {
 	 
 	public Developer() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Developer(String name, String salary) {

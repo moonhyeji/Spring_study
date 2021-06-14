@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	      
+
+
+	<bean id="lee" class="com.test04.anno.Emp">
+		<property name="name" value="이순신"></property>
+		<property name="salary" value="3000000"></property>
+	</bean>
+	
+	<bean id="hong" class="com.test04.anno.Emp">
+		<property name="name" value="홍길동"></property>
+		<property name="salary" value="2500000"></property>
+	</bean>
+	
+	<bean id ="leess" class="com.test04.anno.Developer">
+		<constructor-arg name="emp" ref="lee"></constructor-arg>
+		<constructor-arg name="dept" value="개발 "></constructor-arg>
+	</bean>
+	
+	<bean id="honggd" class="com.test04.anno.Engineer">
+		<constructor-arg name="emp" ref="hong"></constructor-arg>
+		<constructor-arg name="dept" value="엔지니어"></constructor-arg>
+		
+	</bean>
+	
+	
+	
+			<context:component-scan base-package="com.test04.anno"/>
+	
+
+</beans>

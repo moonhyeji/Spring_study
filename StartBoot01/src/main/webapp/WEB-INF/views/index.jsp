@@ -5,10 +5,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+  <link rel="stylesheet" href="resources/css/style.css"/>   
+
 </head>
 <body>
-
-
       <h1>index.jsp</h1>
 </body>
 </html>

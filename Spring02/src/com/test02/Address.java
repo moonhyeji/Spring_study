@@ -8,7 +8,6 @@ public class Address {
 	private String phone;
 	public Address() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	public Address(String name, String addr, String phone) {
 		super();
