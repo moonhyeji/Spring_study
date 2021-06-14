@@ -1,0 +1,51 @@
+SpringMVC03
+01.pom.xml 
+   (db와 연결할 껀데필요한 것들 생각해보자.)
+    ojdbc6 , mybatis, mybatis-spring, commons-dbcp, spring-orm 을 연결!
+02.web.xml
+03./WEB-INF/spring/sqls/test.sql  만들기.
+04.sql table가지고 게시판 만들거니까, dto.dao.biz.controller 만들기.  
+05.src/main/resources/mybatis/myboard-mapper.xml
+06.src/main/resources/mybatis/db.properties (mybatis 설정 해주기.properties-xmlcatalog-add
+07. /WEB-INF/spring/sqls/config.xml
+08.applicationContext.xml
+
+
+_filter
+09. com.mvc.upgrade.common.filter/LogFilter(impl javax.servlet.Filter)   = javax.servlet를 상속받아서 만든다.
+10. web.xml 에 방금만든 logfilter를 설정.  
+
+aop
+11.pom.xml에  aspectjweaver, aspectjrt 넣기  
+12. com.mvc.upgrade.common.aop/LogAop 클래스 만들기 
+13. WEB-INF/spring/appServlet/aop-context.xml(spring bean config파일로만들기 )
+14. web.xml 에 등록 (ling 27:/WEB-INF/spring/appServlet/aop-context.xml 추가.)
+15. src/main/resources/log4j.xml 열기 
+
+
+_login
+16.pom.xml : jackson-core-asl, jackson-mapper-asl (스프링 버전 4.* 이후부터는 jackson-core, jackson-databind로 이름바뀜)
+17. WEB-INF/spring/sqls/test.sql (로그인 할려면 횐가입 잇어야 하는데 횐가입 각자 해보기)
+18.dto.dao.biz.controller만들기 
+19.src/main/resources/mybatis/member-mapper.xml 작성 (next -DTD - DTDmapper선택후 만들기)
+20.WEB-INF/spring/sqls/config.xml 열기 
+
+_interceptor
+21.com.mvc.upgrade.common.interceptor/LoginInterceptor (impl HandlerInterceptor)
+22.WEB-INF/spring/appServlet/servlet-context.xml
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
